@@ -1,0 +1,98 @@
+package se20f;
+
+import java.util.Scanner;
+public class Main {
+	private static String coursename;
+	private static String coursecode;
+	private static int a;
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);  
+		System.out.println("Enter your Roll Number: ");
+		int a=sc.nextInt();
+		
+		Mutable OBJ=new Mutable(coursename, coursecode, a);
+		OBJ.toString();
+	}
+
+
+}
+package se20f;
+
+public class Mutable {
+	private String coursename, coursecode;
+	private int rollnumber;
+	
+	private Immutable immutable;
+	public String getCoursename() {
+		return coursename;
+	}
+	public void setCoursename(String coursename) {
+		this.coursename = coursename;
+	}
+	public String getCoursecode() {
+		return coursecode;
+	}
+	public void setCoursecode(String coursecode) {
+		this.coursecode = coursecode;
+	}
+	public int getRollnumber() {
+		return rollnumber;
+	}
+	public void setRollnumber(int rollnumber) {
+		this.rollnumber = rollnumber;
+	}
+	public Mutable(String coursename, String coursecode, int rollnumber) {
+		this.coursename = coursename;
+		this.coursecode = coursecode;
+		this.rollnumber = rollnumber;
+	}
+	@Override
+	public String toString() {
+		if(rollnumber<=30) {
+			System.out.println("Roll Number:"+rollnumber);
+			System.out.println("YOU ARE PROMOTED IN NEXT SEMESTER");
+		
+		}
+		else {
+			
+			immutable=new  Immutable(coursename, coursecode, rollnumber);
+			immutable.toString();
+			
+		}
+		return "Mutable [coursename=" + coursename + ", coursecode=" + coursecode + ", rollnumber=" + rollnumber + "]";
+	}
+
+
+}
+package se20f;
+
+public class Immutable {
+	final String coursename, coursecode;
+	final int rollnumber;
+	public String getCoursename() {
+		return coursename;
+	}
+	public String getCoursecode() {
+		return coursecode;
+	}
+	public int getRollnumber() {
+		return rollnumber;
+	}
+	public Immutable(String coursename, String coursecode, int rollnumber) {
+		this.coursename = coursename;
+		this.coursecode = coursecode;
+		this.rollnumber = rollnumber;
+	}
+	@Override
+	public String toString() {
+		System.out.println("Roll NUMBER:"+rollnumber);
+		System.out.println("YOU ARE FAILED IN PREVIOUS SEMESTER");
+		System.out.println("YOU ARE NOT PROMOTED IN NEXT SEMESTER");
+		
+		return "Immutable [coursename=" + coursename + ", coursecode=" + coursecode + ", rollnumber=" + rollnumber
+				+ "]";
+	}
+
+
+}
