@@ -1,0 +1,31 @@
+package se20f;
+
+public class Immutable {
+	final String coursename, coursecode;
+	final int rollnumber;
+	public String getCoursename() {
+		return coursename;
+	}
+	public String getCoursecode() {
+		return coursecode;
+	}
+	public int getRollnumber() {
+		return rollnumber;
+	}
+	public Immutable(String coursename, String coursecode, int rollnumber) {
+		this.coursename = coursename;
+		this.coursecode = coursecode;
+		this.rollnumber = rollnumber;
+	}
+	@Override
+	public String toString() {
+		System.out.println("Roll NUMBER:"+rollnumber);
+		System.out.println("YOU ARE FAILED IN PREVIOUS SEMESTER");
+		System.out.println("YOU ARE NOT PROMOTED IN NEXT SEMESTER");
+		
+		return "Immutable [coursename=" + coursename + ", coursecode=" + coursecode + ", rollnumber=" + rollnumber
+				+ "]";
+	}
+
+
+}
